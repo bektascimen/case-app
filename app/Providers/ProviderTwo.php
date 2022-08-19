@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Providers\ProviderInterfaces\ProviderTwoInterface;
+use App\Providers\ProviderInterfaces\ProviderInterface;
 use App\Traits\TaskServiceTrait;
 use Illuminate\Support\Facades\Http;
 
-class ProviderTwo implements ProviderTwoInterface
+class ProviderTwo implements ProviderInterface
 {
     use TaskServiceTrait;
 

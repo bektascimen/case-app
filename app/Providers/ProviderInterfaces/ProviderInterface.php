@@ -2,9 +2,7 @@
 
 namespace App\Providers\ProviderInterfaces;
 
-interface ProviderOneInterface {
-
-    public function getMockDataFromProviderUrl();
+interface ProviderInterface {
 
     public function saveMockDataToDb(): void;
 }
