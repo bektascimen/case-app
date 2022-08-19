@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Http\DPForProvider;
 use App\Providers\ProviderInterfaces\ProviderOneInterface;
 use App\Providers\ProviderInterfaces\ProviderTwoInterface;
 use Illuminate\Console\Command;
@@ -26,18 +27,16 @@ class GetProviderDataAndInsertCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param ProviderOneInterface $providerOne
-     * @param ProviderTwoInterface $providerTwo
      * @return void
      * @throws \Throwable
      */
-    public function handle(ProviderOneInterface $providerOne, ProviderTwoInterface $providerTwo): void
+    public function handle(): void
     {
         try {
             DB::beginTransaction();
 
-            $providerOne->saveMockDataToDb();
-            $providerTwo->saveMockDataToDb();
+            $facade = new DPForProvider();
+            $facade->handle();
 
             DB::commit();
         } catch (\Exception $exception) {
